@@ -23,7 +23,7 @@ class Result {
      
      
      * DP way, which means keep updating the latest values and ignore the previous ones,
-     * No need to use memo table and recursion, simpliest and easiest
+     * No need to use memo table and recursion, simpliest and easiest => runs in O(n), Spaces in O(1);
      */
     
     public static long getAutoSaveInterval(int n) {
