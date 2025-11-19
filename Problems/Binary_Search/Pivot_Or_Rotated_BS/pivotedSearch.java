@@ -4,7 +4,43 @@ import java.util.*;
 
 public class pivotedSearch {
     public static void main(String[] args) {
-        // write a usage case here
+        // Test cases: each pair = (nums, target)
+        List<List<Integer>> testArrays = Arrays.asList(
+            // Example from description (adapted to int)
+            Arrays.asList(1609466400, 1609470000, 1609473600, 1609459200, 1609462800),
+            // Simple rotated sorted arrays
+            Arrays.asList(4, 5, 6, 7, 0, 1, 2),
+            Arrays.asList(6, 7, 0, 1, 2, 3, 4, 5),
+            // No rotation
+            Arrays.asList(1, 2, 3, 4, 5, 6),
+            // Single element
+            Arrays.asList(10),
+            // Empty
+            Collections.emptyList()
+        );
+
+        // Corresponding targets to search
+        int[] targets = {
+            1609459200,  // should be index 3
+            0,           // should be 4
+            3,           // should be 5
+            4,           // should be 3
+            10,          // should be 0
+            5            // should be -1 (not found in empty)
+        };
+
+        for (int i = 0; i < testArrays.size(); i++) {
+            List<Integer> nums = testArrays.get(i);
+            int target = targets[i];
+
+            int idx = Result.searchRotatedTimestamps(nums, target);
+
+            System.out.println("Test Case " + (i + 1));
+            System.out.println("  nums   = " + nums);
+            System.out.println("  target = " + target);
+            System.out.println("  index  = " + idx);
+            System.out.println("------------------------------------");
+        }
     }
 }
 
