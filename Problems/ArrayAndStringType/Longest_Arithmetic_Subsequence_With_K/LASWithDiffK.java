@@ -4,7 +4,46 @@ import java.util.*;
 
 public class LASWithDiffK {
     public static void main(String[] args) {
-        
+        // Prepare test cases
+        List<List<Integer>> testCases = Arrays.asList(
+            // Example from the problem
+            Arrays.asList(8, 1, -1, 0, 3, 6, 2, 4, 5, 7, 9),
+            // Sample Input 0: n = 0
+            Arrays.asList(),
+            // Sample Input 1: n = 1
+            Arrays.asList(42),
+            // Simple progression
+            Arrays.asList(1, 3, 5, 7, 9),
+            // With duplicates
+            Arrays.asList(1, 3, 3, 5, 7, 7, 9),
+            // No valid chain with given k
+            Arrays.asList(10, 20, 30),
+            // Mixed negative and positive
+            Arrays.asList(-5, -3, -1, 1, 3, 5, 7)
+        );
+
+        int[] ks = {
+            2,  // for [8, 1, -1, 0, 3, 6, 2, 4, 5, 7, 9] → expect 6
+            5,  // empty list → 0
+            7,  // single element → 1
+            2,  // [1,3,5,7,9] → 5
+            2,  // duplicates, but same longest = 5
+            4,  // [10,20,30], k=4 → no chain longer than 1 → 1
+            2   // [-5,-3,-1,1,3,5,7], k=2 → longest chain length = 7
+        };
+
+        for (int i = 0; i < testCases.size(); i++) {
+            List<Integer> arr = testCases.get(i);
+            int k = ks[i];
+
+            int result = Result.findLongestArithmeticProgression(arr, k);
+
+            System.out.println("Test Case " + (i + 1));
+            System.out.println("  arr = " + arr);
+            System.out.println("  k   = " + k);
+            System.out.println("  Longest progression length = " + result);
+            System.out.println("-------------------------------------------");
+        }
     }
     
 }
