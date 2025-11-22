@@ -4,7 +4,27 @@ import java.util.*;
 
 public class findPeakBitonicArr {
     public static void main(String[] args) {
-        
+        // Prepare some bitonic (mountain-shaped) test cases
+        List<List<Integer>> testCases = Arrays.asList(
+            Arrays.asList(1, 3, 8, 12, 4, 2),        // peak at index 3 -> 12
+            Arrays.asList(0, 2, 4, 6, 8, 10, 9, 5),  // peak at index 5 -> 10
+            Arrays.asList(1, 2, 3, 4, 5, 3, 1),      // peak at index 4 -> 5
+            Arrays.asList(5, 4, 3, 2, 1),            // strictly decreasing, peak at index 0
+            Arrays.asList(1, 2, 3, 4, 5),            // strictly increasing, peak at last index
+            Arrays.asList(2)                         // single element, peak at index 0
+        );
+
+        int caseNo = 1;
+        for (List<Integer> arr : testCases) {
+            int peakIndex = Result.findPeakIndex(arr);
+            Integer peakValue = arr.get(peakIndex);
+
+            System.out.println("Test Case " + caseNo++);
+            System.out.println("  counts = " + arr);
+            System.out.println("  Peak index = " + peakIndex);
+            System.out.println("  Peak value = " + peakValue);
+            System.out.println("-----------------------------------");
+        }
     }
 }
 
