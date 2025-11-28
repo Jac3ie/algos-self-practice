@@ -4,7 +4,22 @@ import java.util.*;
 
 public class LUSLengthInSession {
     public static void main(String[] args) {
-        
+        // Example session log:
+        //  - Session 1: "ABCADE"
+        //  - Session 2: "XYZX"
+        //  - Session 3: "BBBB"
+        String sessionString = "ABCADE*XYZX*BBBB";
+
+        int longest = Result.maxDistinctSubstringLengthInSessions(sessionString);
+
+        System.out.println("Session string: " + sessionString);
+        System.out.println("Longest distinct substring length across all sessions = " + longest);
+        // Expected output: 5
+        // Explanation:
+        //   "ABCADE" -> "BCADE" (length 5)
+        //   "XYZX"   -> "XYZ"   (length 3)
+        //   "BBBB"   -> "B"     (length 1)
+        //   max = 5
     }
 }
 
